@@ -1,7 +1,7 @@
 name: "Test"
 on:
   pull_request:
-    types: [opened, reopened]
+    # types: [opened, reopened]
 
 jobs:
   triage:
@@ -12,6 +12,17 @@ jobs:
     - run: echo ${{ startsWith(github.ref, 'refs/heads/maint') }}
     - if: startsWith(github.event.pull_request.head.ref, 'maint')
       run: echo "got it"
+
+    - if: github.event_name == 'push' ||
+        ( github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository &&
+          ( startsWith(github.event.pull_request.head.ref, 'feat') ||
+            startsWith(github.event.pull_request.head.ref, 'fix') ||
+            startsWith(github.event.pull_request.head.ref, 'patch') ||
+            startsWith(github.event.pull_request.head.ref, 'dependabot') ||
+            startsWith(github.event.pull_request.head.ref, 'docker')
+          )
+        )
+    - run: echo "we good"
 
     # - uses: actions-ecosystem/action-add-labels@v1
     #   if: startsWith(github.ref, 'refs/heads/maint') || startsWith(github.ref, 'refs/heads/no-ci') || startsWith(github.ref, 'refs/heads/ci')
