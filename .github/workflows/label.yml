@@ -10,7 +10,7 @@ jobs:
     - run: echo ${{ github.ref }}
     - run: echo ${{ github.event.pull_request.head.ref }}
     - run: echo ${{ startsWith(github.ref, 'refs/heads/maint') }}
-    - if: startsWith(github.ref, 'refs/heads/maint')
+    - if: startsWith(github.event.pull_request.head.ref, 'maint')
       run: echo "got it"
 
     # - uses: actions-ecosystem/action-add-labels@v1
