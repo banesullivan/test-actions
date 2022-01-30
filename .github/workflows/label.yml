@@ -22,7 +22,7 @@ jobs:
             startsWith(github.event.pull_request.head.ref, 'docker')
           )
         )
-    - run: echo "we good"
+      run: echo "we good"
 
     # - uses: actions-ecosystem/action-add-labels@v1
     #   if: startsWith(github.ref, 'refs/heads/maint') || startsWith(github.ref, 'refs/heads/no-ci') || startsWith(github.ref, 'refs/heads/ci')
