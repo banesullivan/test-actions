@@ -9,6 +9,7 @@ jobs:
       - uses: marcoroth/dependabot-bump-together-action@update_all_deps
         with:
           dependencies: django-rgd
+          update_all: true
           package_managers: pip
           directory: /
           branch: main
