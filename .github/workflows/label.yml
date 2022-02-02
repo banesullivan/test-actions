@@ -1,31 +1,16 @@
 name: "Test"
 on:
-  pull_request_target:
-    types: [opened, reopened]
+  push:
 
 jobs:
-  triage:
+  check-rgd:
     runs-on: ubuntu-latest
     steps:
-    - run: echo ${{ github.ref }}
-    - run: echo ${{ startsWith(github.ref, 'refs/heads/maint') }}
-    - if: startsWith(github.ref, 'refs/heads/maint')
-      run: echo "got it"
-
-    # - uses: actions-ecosystem/action-add-labels@v1
-    #   if: startsWith(github.ref, 'refs/heads/maint') || startsWith(github.ref, 'refs/heads/no-ci') || startsWith(github.ref, 'refs/heads/ci')
-    #   with:
-    #     labels: maintenance
-    # - uses: actions-ecosystem/action-add-labels@v1
-    #   if: startsWith(github.ref, 'refs/heads/junk')
-    #   with:
-    #     labels: ignore-for-release
-    # - uses: actions-ecosystem/action-add-labels@v1
-    #   if: startsWith(github.ref, 'refs/heads/feat')
-    #   with:
-    #     labels: enhancement
-    #
-    # - uses: actions-ecosystem/action-add-labels@v1
-    #   if: startsWith(github.ref, 'refs/heads/fix') || startsWith(github.ref, 'refs/heads/patch')
-    #   with:
-    #     labels: bug-fix
+      - uses: marcoroth/dependabot-bump-together-action@update_all_deps
+        with:
+          dependencies: django-rgd, django-rgd-imagery
+          package_managers: pip
+          directory: /
+          branch: main
+          username: x-access-token
+          token: ${{ secrets.GITHUB_TOKEN }}
