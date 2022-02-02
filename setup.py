@@ -37,16 +37,7 @@ setup(
     packages=find_packages(),
     include_package_data=True,
     install_requires=[
-        'django-configurations[database,email]>=0.19.2',
-        'django-cleanup',
-        'django-crispy-forms',
-        'rules',
-        # Production-only
-        'django-composed-configuration[prod]>=0.16',
-        'django-s3-file-field[minio]',
-        'flower',
-        'gunicorn',
-        'pylibmc>=1.5.1',
+        'pyvista==0.30.0',
         # RGD
         'django-rgd==0.2.15',
         'django-rgd-imagery==0.2.15',

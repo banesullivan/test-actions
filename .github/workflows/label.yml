@@ -8,7 +8,7 @@ jobs:
     steps:
       - uses: marcoroth/dependabot-bump-together-action@update_all_deps
         with:
-          dependencies: django-rgd, django-rgd-imagery
+          dependencies: django-rgd
           package_managers: pip
           directory: /
           branch: main
