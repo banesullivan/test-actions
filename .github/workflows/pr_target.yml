@@ -7,8 +7,8 @@ jobs:
   triage:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "${{ github.event.pull_request_target.head.ref }}"
+      - run: echo "${{ github.event.pull_request.head.ref }}"
 
       # Label based on branch name
-      - if: startsWith(github.event.pull_request_target.head.ref, 'doc/') || startsWith(github.event.pull_request_target.head.ref, 'docs')
+      - if: startsWith(github.event.pull_request.head.ref, 'doc/') || startsWith(github.event.pull_request.head.ref, 'docs')
         run: echo "got it"
