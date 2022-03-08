@@ -39,7 +39,7 @@ setup(
     install_requires=[
         'pyvista==0.30.0',
         # RGD
-        'django-rgd==0.2.15',
+        'django-rgd==0.2.18',
         'django-rgd-imagery==0.2.15',
     ],
     extras_require={
@@ -47,7 +47,7 @@ setup(
             'django-rgd-imagery[worker]==0.2.15',
         ],
         'fuse': [
-            'django-rgd[fuse]==0.2.15',
+            'django-rgd[fuse]==0.2.18',
         ],
     },
 )
