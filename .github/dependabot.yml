@@ -2,7 +2,6 @@ version: 2
 updates:
   - package-ecosystem: "docker"
     directory: "docker"
-    insecure-external-code-execution: allow
     schedule:
       interval: "daily"
     labels:
