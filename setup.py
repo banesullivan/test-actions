@@ -37,7 +37,7 @@ setup(
     packages=find_packages(),
     include_package_data=True,
     install_requires=[
-        'pyvista==0.30.0',
+        'pyvista==0.33.3',
         # RGD
         'django-rgd==0.2.15',
         'django-rgd-imagery==0.2.15',
