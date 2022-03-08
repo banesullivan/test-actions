@@ -1,24 +1,8 @@
 version: '3'
 services:
-  postgres:
+  pyvista:
     build:
       context: ./docker
-      dockerfile: postgis.Dockerfile
-    environment:
-      POSTGRES_DB: django
-      POSTGRES_PASSWORD: postgres
+      dockerfile: pyvista.Dockerfile
     ports:
-      - ${DOCKER_POSTGRES_PORT-5432}:5432
-    volumes:
-      - dbdata:/var/lib/postgresql/data
-
-  rabbitmq:
-    build:
-      context: ./docker
-      dockerfile: postgis.Dockerfile
-    ports:
-      - ${DOCKER_RABBITMQ_PORT-5672}:5672
-
-volumes:
-  dbdata:
-  fsdata:
+      - 8000:8000
