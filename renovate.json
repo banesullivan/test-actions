@@ -1,3 +1,3 @@
 {
-  "enabledManagers": ["docker-compose"]
+  "enabledManagers": ["docker-compose", "dockerfile"]
 }
