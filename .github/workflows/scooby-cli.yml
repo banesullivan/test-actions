@@ -1,0 +1,25 @@
+name: Test Scooby Conda CLI
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  style:
+    runs-on: windows-latest
+    steps:
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.9"
+      - name: Install miniconda
+        uses: conda-incubator/setup-miniconda@v2
+        with:
+          auto-activate-base: true
+          python-version: 3.8
+      - name: Install scooby
+        run: conda install -c conda-forge scooby --yes
+      - name: Test CLI
+        run: scooby
+          
