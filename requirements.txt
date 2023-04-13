@@ -1,4 +1,4 @@
---extra-index-url https://wheels.pyvista.org
+--extra-index-url https://wheels.vtk.org
 vtk-osmesa
 numpy
 scooby
