@@ -1,6 +1,5 @@
 --extra-index-url https://wheels.pyvista.org
 vtk-osmesa
-pyvista --install-option="--no-deps"  # avoid installing `vtk` from PyPI
 numpy
 scooby
 matplotlib

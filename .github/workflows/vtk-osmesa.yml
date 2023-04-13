@@ -19,8 +19,12 @@ jobs:
         with:
           python-version: 3.11
 
+      # Install PyVista with no-deps to avoid `vtk` dep
+      # We want to use `vtk-osmesa`
       - name: Install requirements
-        run: pip install -r requirements.txt
+        run: |
+          pip install -r requirements.txt
+          pip install pyvista --no-deps
 
       - name: Use PyVista/VTK
         run: python -c "import pyvista;pyvista.Sphere().plot(screenshot='sphere.png')"
