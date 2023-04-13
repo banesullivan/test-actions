@@ -1,0 +1,29 @@
+name: Test VTK OSMesa
+
+on:
+  workflow_dispatch:
+  pull_request:
+  push:
+    branches:
+      - main
+
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.11
+
+      - name: Install requirements
+        run: pip install -r requirements.txt
+
+      - name: Use PyVista/VTK
+        run: python -c "import pyvista;pyvista.Sphere().plot(screenshot='sphere.png')"
+
+      - uses: actions/upload-artifact@v2
+        with:
+          name: sphere
+          path: sphere.png

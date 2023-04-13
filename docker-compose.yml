@@ -1,8 +1,0 @@
-version: '3'
-services:
-  pyvista:
-    build:
-      context: ./docker
-      dockerfile: pyvista.Dockerfile
-    ports:
-      - 8000:8000

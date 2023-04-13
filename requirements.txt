@@ -1,0 +1,9 @@
+--extra-index-url wheels.vtk.org
+vtk-osmesa
+pyvista --install-option="--no-deps"  # avoid installing `vtk` from PyPI
+numpy
+scooby
+matplotlib
+imageio
+pillow
+pooch
