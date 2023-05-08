@@ -1,1 +1,1 @@
-FROM ghcr.io/pyvista/pyvista:v0.35.0
+FROM ghcr.io/pyvista/pyvista:v0.39.0
