@@ -9,8 +9,11 @@ jobs:
     # This job only runs for pull request comments by approved users on creation
     name: PR comment
     if: github.event.issue.pull_request &&
-      contains(('tkoyama010' 'banesullivan' 'akaszynski'), github.event.comment.user.login) &&
-      contains(github.event.comment.body, '@pyvista-bot LGTM')
+      contains(github.event.comment.body, '@pyvista-bot LGTM') && (
+        github.event.comment.user.login == 'banesullivan' ||
+        github.event.comment.user.login == 'tkoyama010' ||
+        github.event.comment.user.login == 'akaszynski'
+      )
     permissions:
       pull-requests: write
     runs-on: ubuntu-latest
