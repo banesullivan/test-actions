@@ -10,7 +10,7 @@ jobs:
     name: PR comment
     if: ${{
       github.event.issue.pull_request &&
-      contains(("tkoyama010", "banesullivan", "akaszynski"), github.event.comment.user.login) &&
+      "banesullivan" == github.event.comment.user.login &&
       contains(github.event.comment.body, '@pyvista-bot LGTM') }}
     permissions:
       pull-requests: write
