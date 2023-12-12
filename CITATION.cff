@@ -1,6 +1,5 @@
 cff-version: 1.2.0
 message: "If you are using PyVista in your research, please help our scientific visibility by citing our work!"
-type: article
 authors:
 - family-names: "Sullivan"
   given-names: "Bane"
