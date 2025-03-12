@@ -1,0 +1,20 @@
+on: 
+  workflow_call:
+  push:
+    branches:
+      - main
+  pull_request:
+name: Slack Notification Demo
+jobs:
+  slackNotification:
+    name: Slack Notification
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Slack Notification
+      uses: rtCamp/action-slack-notify@v2
+      env:
+        SLACK_CHANNEL: tmp-bane-ghactions-notify
+        SLACK_COLOR: '#db540b'
+        SLACK_MESSAGE: "Notification from GitHub Actions"
+        SLACK_TOKEN: ${{ secrets.SLACK_NOTIFICATIONS_BOT_TOKEN }}
